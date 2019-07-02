@@ -215,8 +215,9 @@ def pyhop(state, tasks, verbose=0):
         '** pyhop, verbose={}: **\n   state = {}\n   tasks = {}'.format(verbose, state.__name__, tasks))
     result = seek_plan(state, tasks, [], 0, verbose)
     if verbose > 0:
+        print('** plan length =', len(result))
         print('** result =', result, '\n')
-    return result
+    return len(result)
 
 
 def seek_plan(state, tasks, plan, depth, verbose=0):

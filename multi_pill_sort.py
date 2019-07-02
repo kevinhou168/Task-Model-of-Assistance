@@ -41,8 +41,7 @@ def one_day_at_a_time(state, pill, day, goal):
 def wrong_time(state, pill, day, goal):
     numTimes = len(state.days[pill][day])  # Returns number of times in the day ex.(lunch, dinner) = 2
     for time in range(0, numTimes):  # Iterates through times of day
-        if state.days[pill][day][time] < goal.days[pill][day][
-            time]:  # If state time's # of pills less than goal time's # of pills
+        if state.days[pill][day][time] < goal.days[pill][day][time]:  # If state time's # of pills less than goal time's # of pills
             for otherTime in range(0, numTimes):  # Iterate through times of say again
                 if time != otherTime and state.days[pill][day][otherTime] > goal.days[pill][day][
                     otherTime]:  # If time is different and other time has more pills during state
