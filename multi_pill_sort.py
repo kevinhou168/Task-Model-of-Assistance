@@ -8,7 +8,6 @@ import pyhop
 
 def add_pill(state, pill, day, time):
     state.days[str(pill)][int(day)][int(time)] += 1
-    print('returning state')
     return state
 
 

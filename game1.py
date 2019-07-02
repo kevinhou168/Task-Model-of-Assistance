@@ -1,5 +1,6 @@
 import multi_pill_sort
 import pyhop
+from copy import deepcopy
 
 
 def get_goal():
@@ -33,13 +34,18 @@ def modify_state(state, pill, day, time, action):
         raise Exception('Not a valid action, check for typo in events!')
 
 
+def result_length(state, event):
+    modify_state(state, event[0], event[1], event[2], event[3])
+    temp_state = deepcopy(state)
+    pyhop.pyhop(temp_state, [('sort_meds', get_goal())], verbose=1)
+
+
 def main():
-    events = [['blue', 0, 0, 'add_pill'], ['green', 1, 0, 'add_pill'], ['green', 2, 0, 'add_pill'], ['green', 2, 0, 'remove_pill']]
+    events = [['green', 1, 0, 'add_pill'], ['green', 2, 0, 'add_pill']]
     start_state = get_start_state()
     for event in events:
-        start_state.pills = ['green', 'blue']
-        modify_state(start_state, event[0], event[1], event[2], event[3])
-        pyhop.pyhop(start_state, [('sort_meds', get_goal())], verbose = 1)
+        result_length(start_state, event)
+
 
 if __name__ == '__main__':
     main()
