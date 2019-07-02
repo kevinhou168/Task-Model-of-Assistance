@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16f51312-ca79-46cb-8021-eb6e96bc3ffe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/game1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/multi_pill_sort.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game1.py" beforeDir="false" afterPath="$PROJECT_DIR$/game1.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,8 +33,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/game1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+            <state relative-caret-position="124">
+              <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
               </folding>
@@ -97,6 +95,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
   <component name="RunDashboard">
@@ -122,12 +121,12 @@
       <option name="presentableId" value="Default" />
       <updated>1562089140301</updated>
       <workItem from="1562089142315" duration="433000" />
-      <workItem from="1562089968624" duration="286000" />
+      <workItem from="1562089968624" duration="1356000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="719000" />
+    <option name="totallyTimeSpent" value="1789000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="18" y="25" width="1400" height="773" extended-state="0" />
@@ -187,8 +186,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/game1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+        <state relative-caret-position="124">
+          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
           </folding>
