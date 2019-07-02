@@ -5,16 +5,20 @@ import multi_pill_sort
 
 
 class TestEventFunctions(unittest.TestCase):
-    def testAdd(self):
+    def testModifyAdd(self):
         state = game1.get_start_state()
         game1.modify_state(state, 'green', 0, 0, 'add_pill')
         self.assertEqual(state.days['green'][0][0], 1)
 
-    def testRemove(self):
+    def testModifyRemove(self):
         state = game1.get_start_state()
         game1.modify_state(state, 'green', 0, 0, 'add_pill')
         game1.modify_state(state, 'green', 0, 0, 'remove_pill')
         self.assertEqual(state.days['green'][0][0], 0)
+
+    def testModifyRemoveFromEmptySpot(self):
+        state = game1.get_start_state()
+        with self.assertRaises(Exception): game1.modify_state(state, 'green', 0, 0, 'remove_pill')
 
 
 class TestStateLength(unittest.TestCase):
@@ -29,15 +33,19 @@ class TestStateLength(unittest.TestCase):
 
     def testEnd(self):
         state = game1.get_start_state()
-        state.days['green'] = [[1,0,0,0], [1,0,0,0], [1,0,0,0], [1,0,0,0], [1,0,0,0], [1,0,0,0], [1,0,0,0]]
-        state.days['blue'] = [[0,2,0,0], [0,0,0,0], [2,0,0,0], [0,0,0,0], [2,0,0,0], [0,0,0,0], [0,0,0,0]]
+        state.days['green'] = [[1, 0, 0, 0], [1, 0, 0, 0], [1, 0, 0, 0], [1, 0, 0, 0], [1, 0, 0, 0], [1, 0, 0, 0],
+                               [1, 0, 0, 0]]
+        state.days['blue'] = [[0, 2, 0, 0], [0, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0],
+                              [0, 0, 0, 0]]
         self.assertEqual(pyhop.pyhop(state, [('sort_meds', game1.get_goal())]), 0)
 
-
-
-# standard python style
-
-
+    def testOneMoreThanGoal(self):
+        state = game1.get_start_state()
+        state.days['green'] = [[2, 0, 0, 0], [1, 0, 0, 0], [1, 0, 0, 0], [1, 0, 0, 0], [1, 0, 0, 0], [1, 0, 0, 0],
+                               [1, 0, 0, 0]]
+        state.days['blue'] = [[0, 2, 0, 0], [0, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0],
+                              [0, 0, 0, 0]]
+        self.assertEqual(pyhop.pyhop(state, [('sort_meds', game1.get_goal())]), 1)
 
 
 if __name__ == '__main__':

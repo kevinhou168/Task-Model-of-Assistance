@@ -31,7 +31,7 @@ def modify_state(state, pill, day, time, action):
     elif action == 'remove_pill':
         return multi_pill_sort.remove_pill(state, pill, day, time)
     else:
-        raise Exception('Not a valid action, check for typo in events!')
+        raise Exception('Not a valid action!')
 
 
 def result_length(state, event):
