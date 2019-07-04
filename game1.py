@@ -32,7 +32,7 @@ def modify_state(state, pill, day, time, action, num):
         return state
     elif action == 'remove_pill':
         for i in range(0, num):
-            if multi_pill_sort.remove_pill(state, pill, day, time) == False:
+            if not multi_pill_sort.remove_pill(state, pill, day, time):
                 raise Exception('Removing pill from empty space!')
         return state
     else:

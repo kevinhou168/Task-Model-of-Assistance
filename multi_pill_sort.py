@@ -25,8 +25,7 @@ pyhop.declare_operators(add_pill, remove_pill)
 # methods
 
 def one_pill_at_a_time(state, goal):
-    pill = state.pills[0]
-    state.pills.pop(0)
+    pill = state.pills.pop(0)
     if len(state.pills) == 0:
         return [('sort_pill', pill, 0, goal)]
     else:
