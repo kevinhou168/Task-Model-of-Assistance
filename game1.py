@@ -25,23 +25,28 @@ def get_start_state():
     return state
 
 
-def modify_state(state, pill, day, time, action):
+def modify_state(state, pill, day, time, action, num):
     if action == 'add_pill':
-        return multi_pill_sort.add_pill(state, pill, day, time)
+        for i in range(0, num):
+            multi_pill_sort.add_pill(state, pill, day, time)
+        return state
     elif action == 'remove_pill':
-        return multi_pill_sort.remove_pill(state, pill, day, time)
+        for i in range(0, num):
+            if multi_pill_sort.remove_pill(state, pill, day, time) == False:
+                raise Exception('Removing pill from empty space!')
+        return state
     else:
         raise Exception('Not a valid action!')
 
 
 def result_length(state, event):
-    modify_state(state, event[0], event[1], event[2], event[3])
+    modify_state(state, event[0], event[1], event[2], event[3], event[4])
     temp_state = deepcopy(state)
     pyhop.pyhop(temp_state, [('sort_meds', get_goal())], verbose=1)
 
 
 def main():
-    events = [['green', 1, 0, 'add_pill'], ['green', 2, 0, 'add_pill']]
+    events = [['green', 1, 0, 'add_pill', 2], ['green', 2, 0, 'add_pill', 1]]
     start_state = get_start_state()
     for event in events:
         result_length(start_state, event)

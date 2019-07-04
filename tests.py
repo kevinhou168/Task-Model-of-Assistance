@@ -7,18 +7,18 @@ import multi_pill_sort
 class TestEventFunctions(unittest.TestCase):
     def testModifyAdd(self):
         state = game1.get_start_state()
-        game1.modify_state(state, 'green', 0, 0, 'add_pill')
+        game1.modify_state(state, 'green', 0, 0, 'add_pill', 1)
         self.assertEqual(state.days['green'][0][0], 1)
 
     def testModifyRemove(self):
         state = game1.get_start_state()
-        game1.modify_state(state, 'green', 0, 0, 'add_pill')
-        game1.modify_state(state, 'green', 0, 0, 'remove_pill')
+        game1.modify_state(state, 'green', 0, 0, 'add_pill', 1)
+        game1.modify_state(state, 'green', 0, 0, 'remove_pill', 1)
         self.assertEqual(state.days['green'][0][0], 0)
 
-    def testModifyRemoveFromEmptySpot(self):
+    def testRemoveFromEmptySpot(self):
         state = game1.get_start_state()
-        with self.assertRaises(Exception): game1.modify_state(state, 'green', 0, 0, 'remove_pill')
+        self.assertFalse(multi_pill_sort.remove_pill(state, 'green', 0, 0))
 
 
 class TestStateLength(unittest.TestCase):
@@ -28,7 +28,7 @@ class TestStateLength(unittest.TestCase):
 
     def testOne(self):
         state = game1.get_start_state()
-        game1.modify_state(state, 'green', 0, 0, 'add_pill')
+        game1.modify_state(state, 'green', 0, 0, 'add_pill', 1)
         self.assertEqual(pyhop.pyhop(state, [('sort_meds', game1.get_goal())]), 12)
 
     def testEnd(self):

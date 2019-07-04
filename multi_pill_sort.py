@@ -16,7 +16,7 @@ def remove_pill(state, pill, day, time):
         state.days[str(pill)][int(day)][int(time)] -= 1
         return state
     else:
-        raise Exception('Removing from an empty spot!')
+        return False
 
 
 pyhop.declare_operators(add_pill, remove_pill)
