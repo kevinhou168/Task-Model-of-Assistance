@@ -46,7 +46,7 @@ def result_length(state, event):
 
 
 def main():
-    events = [['green', 1, 0, 'add_pill', 2], ['green', 2, 0, 'add_pill', 1]]
+    events = [['green', 0, 0, 'add_pill', 1], ['green', 0, 0, 'remove_pill', 1]]
     start_state = get_start_state()
     for event in events:
         result_length(start_state, event)

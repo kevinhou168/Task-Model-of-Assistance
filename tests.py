@@ -31,6 +31,12 @@ class TestStateLength(unittest.TestCase):
         game1.modify_state(state, 'green', 0, 0, 'add_pill', 1)
         self.assertEqual(pyhop.pyhop(state, [('sort_meds', game1.get_goal())]), 12)
 
+    def testSameState(self):
+        state = game1.get_start_state()
+        game1.modify_state(state, 'green', 0, 0, 'add_pill', 1)
+        game1.modify_state(state, 'green', 0, 0, 'remove_pill', 1)
+        self.assertEqual(pyhop.pyhop(state, [('sort_meds', game1.get_goal())]), 13)
+
     def testEnd(self):
         state = game1.get_start_state()
         state.days['green'] = [[1, 0, 0, 0], [1, 0, 0, 0], [1, 0, 0, 0], [1, 0, 0, 0], [1, 0, 0, 0], [1, 0, 0, 0],
@@ -47,6 +53,10 @@ class TestStateLength(unittest.TestCase):
                               [0, 0, 0, 0]]
         self.assertEqual(pyhop.pyhop(state, [('sort_meds', game1.get_goal())]), 1)
 
+    def testRemoveMoreThanCurrent(self):
+        state = game1.get_start_state()
+        game1.modify_state(state, 'green', 0, 0, 'add_pill', 1)
+        with self.assertRaises(Exception): game1.modify_state(state, 'green', 0, 0, 'remove_pill', 2)
 
 if __name__ == '__main__':
     unittest.main()
