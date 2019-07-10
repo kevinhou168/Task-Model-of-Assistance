@@ -24,18 +24,18 @@ class TestEventFunctions(unittest.TestCase):
 class TestStateLength(unittest.TestCase):
     def testStart(self):
         state = game1.get_start_state()
-        self.assertEqual(pyhop.pyhop(state, [('sort_meds', game1.get_goal())]), 13)
+        self.assertEqual(len(pyhop.pyhop(state, [('sort_meds', game1.get_goal())])), 13)
 
     def testOne(self):
         state = game1.get_start_state()
         game1.modify_state(state, 'green', 0, 0, 'add_pill', 1)
-        self.assertEqual(pyhop.pyhop(state, [('sort_meds', game1.get_goal())]), 12)
+        self.assertEqual(len(pyhop.pyhop(state, [('sort_meds', game1.get_goal())])), 12)
 
     def testSameState(self):
         state = game1.get_start_state()
         game1.modify_state(state, 'green', 0, 0, 'add_pill', 1)
         game1.modify_state(state, 'green', 0, 0, 'remove_pill', 1)
-        self.assertEqual(pyhop.pyhop(state, [('sort_meds', game1.get_goal())]), 13)
+        self.assertEqual(len(pyhop.pyhop(state, [('sort_meds', game1.get_goal())])), 13)
 
     def testEnd(self):
         state = game1.get_start_state()
@@ -43,7 +43,7 @@ class TestStateLength(unittest.TestCase):
                                [1, 0, 0, 0]]
         state.days['blue'] = [[0, 2, 0, 0], [0, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0],
                               [0, 0, 0, 0]]
-        self.assertEqual(pyhop.pyhop(state, [('sort_meds', game1.get_goal())]), 0)
+        self.assertEqual(len(pyhop.pyhop(state, [('sort_meds', game1.get_goal())])), 0)
 
     def testOneMoreThanGoal(self):
         state = game1.get_start_state()
@@ -51,7 +51,7 @@ class TestStateLength(unittest.TestCase):
                                [1, 0, 0, 0]]
         state.days['blue'] = [[0, 2, 0, 0], [0, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0], [2, 0, 0, 0], [0, 0, 0, 0],
                               [0, 0, 0, 0]]
-        self.assertEqual(pyhop.pyhop(state, [('sort_meds', game1.get_goal())]), 1)
+        self.assertEqual(len(pyhop.pyhop(state, [('sort_meds', game1.get_goal())])), 1)
 
     def testRemoveMoreThanCurrent(self):
         state = game1.get_start_state()

@@ -42,7 +42,7 @@ def modify_state(state, pill, day, time, action, num):
 def result_length(state, event):
     modify_state(state, event[0], event[1], event[2], event[3], event[4])
     temp_state = deepcopy(state)
-    pyhop.pyhop(temp_state, [('sort_meds', get_goal())], verbose=1)
+    return len(pyhop.pyhop(temp_state, [('sort_meds', get_goal())], verbose=1))
 
 
 def main():

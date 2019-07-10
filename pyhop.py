@@ -217,7 +217,7 @@ def pyhop(state, tasks, verbose=0):
     if verbose > 0:
         print('** plan length =', len(result))
         print('** result =', result, '\n')
-    return len(result)
+    return result
 
 
 def seek_plan(state, tasks, plan, depth, verbose=0):
